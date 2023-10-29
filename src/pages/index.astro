@@ -1,35 +1,16 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
-let res = await fetch("http://localhost/wordpress/wp-json/wp/v2/posts");
-let posts = await res.json();
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="AL Hikmah" description="" />
 	</head>
-	<body>
-		<Header title={SITE_TITLE} />
+    <body>
 		<main>
-			<section>
-				<h1>List of Dinosaurs</h1>
-				{
-					posts.map((post) => (
-						<article>
-						<h2>
-							<a href={`/dinos/${post.slug}/`} set:html={post.title.rendered} />
-						</h2>
-						<Fragment set:html={post.content.rendered} />
-						</article>
-					))
-				}
-			</section>
+			<Header />
 		</main>
-		<Footer />
-	</body>
+    </body>
 </html>

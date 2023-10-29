@@ -19,10 +19,10 @@ async function fetchAPI(query, { variables } = {}) {
     return json.data;
 }
 
-export async function getAllPagesWithSlugs() {
+export async function getAllWriters() {
     const data = await fetchAPI(`
     {
-      pages(first: 10000) {
+      writers(first: 10000) {
         edges {
           node {
             slug
@@ -31,5 +31,5 @@ export async function getAllPagesWithSlugs() {
       }
     }
     `);
-    return data?.pages;
+    return data?.writers;
 }
